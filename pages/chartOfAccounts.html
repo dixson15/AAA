@@ -216,15 +216,15 @@
                           <!-- Modal content-->
                           <div class="modal-content chart-accounts-modal-content">
                             <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                               <h4 class="modal-title">Add an Account to your Chart of Accounts</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="chart-accounts-modal">
-                                    <li><label>Account Name</label></li>
-                                    <li><input class="form-control"></>
                                     <li><label>Account Number</label></li>
-                                    <li><input class="form-control"></>
+                                    <li><input class="form-control" type="number" id="accountNumber"></>
+                                    <li><label>Account Name</label></li>
+                                    <li><input class="form-control" id="accountName"></>
+                                    
                                 </div>
                                 <div class="chart-accounts-modal">
                                      <li><label for="accountTypeSelect">Account Type</label></li>
@@ -250,13 +250,20 @@
                                          <option>Left</option>
                                     </select></li>
                                     <li><label>Initial Balance</label></li>
-                                    <li><input class="form-control"></>
+                                    <li><input class="form-control" type="number" step="any" id="initialBalance"></>
+                                </div>
+                                <div class="chart-accounts-modal">
+                                    <li><label for="accountStatus">Account Status</label></li>
+                                     <li><select id="accountStatus" class="form-control">
+                                         <option>Active</option>
+                                         <option>Inactive</option>
+                                    </select></li>
                                 </div>
                             </div>
                             <div class="modal-footer">
                               
-                              <button type="button" class="btn btn-outline btn-success" data-dismiss="modal">Add Account</button>
-                              <button type="button" class="btn btn-outline btn-danger" data-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-outline btn-success" id="addAccount-buttn">Add Account</button>
+                              <button type="button" class="btn btn-outline btn-danger" data-dismiss="modal" id= "delAccount-buttn">Cancel</button>
                             </div>
                           </div>   
                         </div>
@@ -276,48 +283,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>101</td>
-                                        <td>Cash</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <div class= "chart-row-data-template">
-                                                <li>
-                                                    <button type="button" class="btn btn-outline btn-success">Edit</button>
-                                                </li>
-                                                <li>
-                                                    <button type="button" class="btn btn-outline btn-primary">View</button>
-                                                </li>
-                                            </div>
-                                            
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>102</td>
-                                        <td>Accounts Receivable</td>
-                                        <td>Active</td>
-                                       <td>
-                                            <div class= "chart-row-data-template">
-                                                <li>
-                                                    <button type="button" class="btn btn-outline btn-success">Edit</button>
-                                                </li>
-                                                <li>
-                                                    <button type="button" class="btn btn-outline btn-primary">View</button>
-                                                </li>
-                                            </div>
-                                            
-                                        </td>
-                                    </tr>
-                            
                                 </tbody>
                             </table>
-                            <!-- /.table-responsive -->
-                            <div class="well">
-                                <h4>DataTables Usage Information</h4>
-                                <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
-                                <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>
-                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -352,13 +319,31 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <!-- Page-Level Demo Scripts - Tables - Use for reference   see sb-admin-2.js-->
     <script>
-    $(document).ready(function() {
-        $('#chart-of-accounts-table').DataTable({
+          $(document).ready(function() {
+            $('#addAccount-buttn').click(function(){
+            var accountName = $("#accountName").val();
+            var accountNumber = $("#accountNumber").val();
+            var accountStatus = $("#accountStatus").val();
+            var div = '<div class= "chart-row-data-template">';
+            var buttonEdit = '<li> <button type="button" class="btn btn-outline btn-success">Edit</button></li>';
+            var buttonView = '<li> <button type="button" class="btn btn-outline btn-primary">View</button></li></div>';
+            var markup = "<tr><td>" + accountNumber+ "</td><td>" + accountName + "</td><td>" + accountStatus + "</td><td>" + div + buttonEdit + buttonView + "</td></tr>" ;
+            $("table tbody").append(markup);
+
+            //TODO find a better way to reset values back
+            document.getElementById("accountName").value = " ";
+            document.getElementById("accountNumber").value = " ";
+            document.getElementById("initialBalance").value = " ";
+            $('#myModal').modal('toggle');
+           
+
+            
+        });
             responsive: true
         });
-    });
+
     </script>
     
     <!--
