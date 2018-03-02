@@ -46,4 +46,72 @@ $(function() {
 
 
 /***                                                                 CHART OF ACCOUNTS related scripts here                                                                *****/
+
+//make sure values are not empty
+function addChartAccount(){
+    var accountName = $("#accountName").val();
+    var accountNumber = $("#accountNumber").val();
+    var initialBalance = $("#initialBalance").val();
+
+    
+    if(accountName == "" || accountNumber == "" || initialBalance == "" || initialBalance == 0){
+           if(initialBalance == 0)
+                 alert("Initial Balance cannot be zero");
+           else
+             alert("Cannot have empty fields.");
+            
+         return false;
+    }
+    else if(hasDuplicate(accountName)||hasDuplicate(accountNumber))
+        alert("Please enter a unique account name and number.");
+    else{
+        addRow();
+    }
+}
+
 //add a row 
+function addRow(){
+            $(document).ready(function() {
+            var accountName = $("#accountName").val();
+            var accountNumber = $("#accountNumber").val();
+            var accountStatus = $("#accountStatus").val();
+            var div = '<div class= "chart-row-data-template">';
+            var buttonEdit = '<li> <button type="button" class="btn btn-outline btn-success">Edit</button></li>';
+            var buttonView = '<li> <button type="button" class="btn btn-outline btn-primary">View</button></li></div>';
+            var markup = "<tr><td>" + accountNumber+ "</td><td>" + accountName + "</td><td>" + accountStatus + "</td><td>" + div + buttonEdit + buttonView + "</td></tr>" ;
+            $("table tbody").append(markup);
+
+            //TODO find a better way to reset values back
+            document.getElementById("accountName").value = "";
+            document.getElementById("accountNumber").value = "";
+            document.getElementById("initialBalance").value = "";
+            $('#myModal').modal('toggle');
+            responsive: true
+        });
+}
+
+//check for duplicates
+function hasDuplicate(value){
+
+    if ($('#chart-of-accounts-table td:contains(' + value + ')').length)
+        return true
+    return false
+}
+
+function cancelDialog(){
+
+    var response =  confirm("Your changes will not be saved, are you sure you want to cancel? ");
+    if (response == true) {
+          //TODO find a better way to reset values back
+            document.getElementById("accountName").value = "";
+            document.getElementById("accountNumber").value = "";
+            document.getElementById("initialBalance").value = "";
+            $('#myModal').modal('toggle');
+    } 
+
+   
+}
+
+
+  
+
