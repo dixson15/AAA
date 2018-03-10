@@ -158,6 +158,30 @@ body {
 .chat li .chat-body p {
   margin: 0;
 }
+.chart-of-accounts{
+  
+  padding: 15px 20px;
+  //margin-bottom: 20px;
+    margin-right:95px;
+  
+  
+}
+.chart-accounts-modal-content{
+  width: 750px;
+  margin: auto;
+}
+.chart-accounts-modal > li{
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.chart-accounts-modal > li > label{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.chart-accounts-modal > li > input{
+  margin-right: 10px;
+}
+
 .panel .slidedown .glyphicon,
 .chat .glyphicon {
   margin-right: 5px;
@@ -201,6 +225,7 @@ table.dataTable thead .sorting:after {
   font-family: fontawesome;
   color: rgba(50, 50, 50, 0.5);
 }
+
 .btn-circle {
   width: 30px;
   height: 30px;
@@ -280,10 +305,7 @@ table.dataTable thead .sorting:after {
 .panel-yellow > a:hover {
   color: #df8a13;
 }
-.table-chart-of-accounts{
 
-
-}
 .timeline {
   position: relative;
   padding: 20px 0 20px;
@@ -407,8 +429,9 @@ table.dataTable thead .sorting:after {
 .timeline-body > p + p {
   margin-top: 5px;
 }
-ul.chart-row-data-template > li{
+div.chart-row-data-template > li{
   display: inline-block;
+ 
   
 
 }
