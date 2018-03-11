@@ -22,6 +22,11 @@ body {
     border-left: 1px solid #e7e7e7;
   }
 }
+
+
+
+
+
 .navbar-top-links {
   margin-right: 0;
 }
@@ -159,12 +164,12 @@ body {
   margin: 0;
 }
 .chart-of-accounts{
-  
+
   padding: 15px 20px;
   //margin-bottom: 20px;
     margin-right:95px;
-  
-  
+
+
 }
 .chart-accounts-modal-content{
   width: 750px;
@@ -321,6 +326,16 @@ table.dataTable thead .sorting:after {
   margin-left: -1.5px;
   background-color: #eeeeee;
 }
+
+.no-border{
+   font-size: 14px;
+   width: 250px;
+   height: 344px;
+   float: left;
+   padding-left: 5px;
+   padding-right: 5px;
+   margin-top: 7px;
+}
 .timeline > li {
   position: relative;
   margin-bottom: 20px;
@@ -431,8 +446,8 @@ table.dataTable thead .sorting:after {
 }
 div.chart-row-data-template > li{
   display: inline-block;
- 
-  
+
+
 
 }
 ul.chart-row-data-template > li > button{

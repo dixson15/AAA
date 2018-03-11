@@ -3,7 +3,11 @@ $(function() {
 });
 
 
-
+$(document).ready(function() {
+        $('#chart-of-accounts-table').DataTable({
+            responsive: true
+        });
+    });
 
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
@@ -69,26 +73,31 @@ function addChartAccount(){
     }
 }
 
-//add a row 
-function addRow(){
-            $(document).ready(function() {
-            var accountName = $("#accountName").val();
-            var accountNumber = $("#accountNumber").val();
-            var accountStatus = $("#accountStatus").val();
-            var div = '<div class= "chart-row-data-template">';
-            var buttonEdit = '<li> <button type="button" class="btn btn-outline btn-success">Edit</button></li>';
-            var buttonView = '<li> <button type="button" class="btn btn-outline btn-primary">View</button></li></div>';
-            var markup = "<tr><td>" + accountNumber+ "</td><td>" + accountName + "</td><td>" + accountStatus + "</td><td>" + div + buttonEdit + buttonView + "</td></tr>" ;
-            $("table tbody").append(markup);
 
-            //TODO find a better way to reset values back
-            document.getElementById("accountName").value = "";
-            document.getElementById("accountNumber").value = "";
-            document.getElementById("initialBalance").value = "";
-            $('#myModal').modal('toggle');
-            responsive: true
-        });
+function addRow(){
+    
+    var table = $('#example').DataTable();
+    var accountName = $("#accountName").val();
+    var accountNumber = $("#accountNumber").val();
+    var accountStatus = $("#accountStatus").val();
+    var div = '<div class= "chart-row-data-template">';
+    var buttonEdit = '<li> <button type="button" class="btn btn-outline btn-success">Edit</button></li>';
+    var buttonView = '<li> <button type="button" class="btn btn-outline btn-primary">View</button></li></div>';
+    var markup = "<tr><td>" + accountNumber+ "</td><td>" + accountName + "</td><td>" + accountStatus + "</td><td>" + div + buttonEdit + buttonView + "</td></tr>" ;
+   //  $("#chart-of-accounts-table tbody").append(markup);
+
+   var table = $('#chart-of-accounts-table').DataTable();
+    table.row.add($(markup)).draw(false);
+
+     //TODO find a better way to reset values back
+    document.getElementById("accountName").value = "";
+    document.getElementById("accountNumber").value = "";
+    document.getElementById("initialBalance").value = "";
+    $('#myModal').modal('toggle');
+
 }
+
+
 
 //check for duplicates
 function hasDuplicate(value){

@@ -183,19 +183,19 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="fa  fa-users   fa-fw"></i> Users </a>
+                            <a href="#"><i class="fa  fa-users   fa-fw"></i>Admin</a>
                         </li>
                         <li>
                             <a href="chartOfAccounts.html"><i class="fa fa-table fa-fw"></i> Chart of Accounts</a>
                         </li>
                         <li>
-                           <a href="#"><i class="fa fa-book fa-fw"></i> Accounts<span class="fa arrow"></span></a>
+                           <a href="#"><i class="fa fa-book fa-fw"></i> Accounts</a>
                         </li>
                          <li>
-                           <a href="#"><i class="fa fa-edit fa-fw""></i> Journalize <span class="fa arrow"></span></a>
+                           <a href="#"><i class="fa fa-edit fa-fw""></i> Journalize</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Logs <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Logs</a>
                         </li>     
                     </ul>
                 </div>
@@ -252,10 +252,11 @@
                                      </select></li>
                                      <li><label for="accountSubCSelect">Account Subcategory</label></li>
                                      <li><select id="accountSubCSelect" class="form-control">
-                                         <option>blah blah blah blah </option>
-                                         <option></option>
-                                         <option></option>
-                                         <option></option>
+                                         <option>Cash</option>
+                                         <option>Accounts Receivable</option>
+                                         <option>Equipment</option>
+                                         <option>Accounts Payable</option>
+                                         <option>Notes Payable</option>
                                     </select></li>
                                 </div>
                                 <div class="chart-accounts-modal">
@@ -265,7 +266,8 @@
                                          <option>Left</option>
                                     </select></li>
                                     <li><label>Initial Balance</label></li>
-                                    <li><input class="form-control" type="number"  step="any" id="initialBalance" required></>
+                                    <li><input class="form-control"  id="initialBalance" required></>
+                            
                                 </div>
                                 <div class="chart-accounts-modal">
                                     <li><label for="accountStatus">Account Status</label></li>
@@ -277,7 +279,7 @@
                             </div>
                             <div class="modal-footer">
                               
-                              <button type="button" class="btn btn-outline btn-success" id="addAccount-buttn" onclick="addChartAccount()">Add Account</button>
+                              <button type="button" class="btn btn-outline btn-success" id="addAccount-buttn" onclick="addRow()">Add Account</button>
                               <button type="button" class="btn btn-outline btn-danger" id= "delAccount-buttn" onclick="cancelDialog()">Cancel</button>
                               <script type="text/javascript" src="../js/sb-admin-2.js"></script>
                             </div>
@@ -285,10 +287,9 @@
                         </div>
                       </div>
                       </div>
+
                         <div class="panel-body">
                            
-                           
-
                             <table width="100%" class="table table-striped  table-hover" id="chart-of-accounts-table">
                                 <thead>
                                     <tr class ="chart-of-accounts-header-row">
@@ -298,8 +299,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                </tbody>
+                           
                             </table>
                         </div>
                         <!-- /.panel-body -->
@@ -321,12 +321,7 @@
    
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference   see sb-admin-2.js-->
-    
-    
-    <!--
-    <script>
-       document.getElementById("date").innerHTML = Date();
-    </script>
+
     -->
 </body>
 
