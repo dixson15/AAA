@@ -24,7 +24,9 @@ body {
 }
 
 
+.add-row-btn{
 
+}
 
 
 .navbar-top-links {
@@ -230,7 +232,12 @@ table.dataTable thead .sorting:after {
   font-family: fontawesome;
   color: rgba(50, 50, 50, 0.5);
 }
-
+.journal-entry-table{
+  margin-top: 6px !important;
+ margin-bottom: 6px !important;
+	max-width: none !important;
+  border-collapse: separate !important;
+}
 .btn-circle {
   width: 30px;
   height: 30px;

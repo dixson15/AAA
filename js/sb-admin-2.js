@@ -32,9 +32,6 @@ $(function() {
     });
 
     var url = window.location;
-    // var element = $('ul.nav a').filter(function() {
-    //     return this.href == url;
-    // }).addClass('active').parent().parent().addClass('in').parent();
     var element = $('ul.nav a').filter(function() {
         return this.href == url;
     }).addClass('active').parent();
@@ -57,13 +54,13 @@ function addChartAccount(){
     var accountNumber = $("#accountNumber").val();
     var initialBalance = $("#initialBalance").val();
 
-    
+
     if(accountName == "" || accountNumber == "" || initialBalance == "" || initialBalance == 0){
            if(initialBalance == 0)
                  alert("Initial Balance cannot be zero");
            else
              alert("Cannot have empty fields.");
-            
+
          return false;
     }
     else if(hasDuplicate(accountName)||hasDuplicate(accountNumber))
@@ -75,7 +72,7 @@ function addChartAccount(){
 
 
 function addRow(){
-    
+
     var table = $('#example').DataTable();
     var accountName = $("#accountName").val();
     var accountNumber = $("#accountNumber").val();
@@ -84,7 +81,7 @@ function addRow(){
     var buttonEdit = '<li> <button type="button" class="btn btn-outline btn-success">Edit</button></li>';
     var buttonView = '<li> <button type="button" class="btn btn-outline btn-primary">View</button></li></div>';
     var markup = "<tr><td>" + accountNumber+ "</td><td>" + accountName + "</td><td>" + accountStatus + "</td><td>" + div + buttonEdit + buttonView + "</td></tr>" ;
-   //  $("#chart-of-accounts-table tbody").append(markup);
+
 
    var table = $('#chart-of-accounts-table').DataTable();
     table.row.add($(markup)).draw(false);
@@ -116,11 +113,7 @@ function cancelDialog(){
             document.getElementById("accountNumber").value = "";
             document.getElementById("initialBalance").value = "";
             $('#myModal').modal('toggle');
-    } 
+    }
 
-   
+
 }
-
-
-  
-
