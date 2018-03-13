@@ -8,6 +8,8 @@
      <!-- Bootstrap Core JavaScript -->
      <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
+    <script src="../vendor/bootstrap4/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../vendor/bootstrap-filestyle/src/bootstrap-filestyle.min.js"> </script>
      <!-- Metis Menu Plugin JavaScript -->
      <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
@@ -30,6 +32,8 @@
 
      <!-- Bootstrap Core CSS -->
      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
 
      <!-- MetisMenu CSS -->
      <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -234,7 +238,7 @@
 
       <button type="button" class="add-row-btn btn btn-outline btn-info" id="addRow" style"margin-right: 5530px;" >Add Row</button>
 
-               <table class="journalize-table  table-hover" width="100%" id="journal-entry-table">
+               <table class="journalize-table display table-hover" width="100%" id="journal-entry-table">
                   <thead>
                       <tr>
                           <th>#</th>
@@ -243,12 +247,13 @@
                           <th>Credits</th>
                           <th>Description</th>
                           <th>Name</th>
+                          <th>Attach</th>
                       </tr>
 
                       <tr>
-                         <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
-                           <td ></td>
-                         </div>
+                         <td>
+                          <div style="margin-top: 6px !important; margin-bottom: 6px !important;">1</div>
+                         </td>
                            <td>
                              <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
                             <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
@@ -281,13 +286,19 @@
                               <input  type="text" class="name form-control" >
                             </div>
                         </td>
-                      </tr>
+                        <td >
+                          <div style="margin-left:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                          <label for="file-upload" class="custom-file-upload">
+                                <i class="glyphicon glyphicon-upload"></i>
+                            </label>
+                            <input id="file-upload" type="file"/>
+                          </div>
+                        </td>
                      <!--                        row                     -->
-                     <tr>
-                        <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
-                          <td ></td>
-                        </div>
-                          <td>
+                       <tr>
+                         <td>
+                           <div style="margin-top: 6px !important; margin-bottom: 6px !important;">2 </div>
+                         </td><td>
                             <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
                            <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
                               <option></option>
@@ -319,23 +330,33 @@
                              <input  type="text" class="name form-control" >
                            </div>
                        </td>
-                     </tr>
-                     <tr>
-                        <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
-                          <td ></td>
-                        </div>
-                          <td>
-                            <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
-                           <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
-                              <option></option>
-                               <option>Cash</option>
-                               <option>Accounts Receivable</option>
-                               <option>Equipment</option>
-                               <option>Accounts Payable</option>
-                               <option>Notes Payable</option>
-                          </select>
-                        </div>
-                      </td>
+                       <td >
+                         <div style="margin-left:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                         <label for="file-upload" class="custom-file-upload">
+                               <i class="glyphicon glyphicon-upload"></i>
+                           </label>
+                           <input id="file-upload" type="file"/>
+                         </div>
+                       </td>
+     <!--                        row                     -->
+                  <tr>
+
+                       <td>
+                         <div style="margin-top: 6px !important; margin-bottom: 6px !important;"> 3</div>
+                        </td>
+
+                        <td>
+                          <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                         <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
+                            <option></option>
+                             <option>Cash</option>
+                             <option>Accounts Receivable</option>
+                             <option>Equipment</option>
+                             <option>Accounts Payable</option>
+                             <option>Notes Payable</option>
+                        </select>
+                      </div>
+                    </td>
                        <td>
                            <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
                                <span class="input-group-addon">$</span><input  type="text" class="form-control debits" style="text-align:right">
@@ -356,6 +377,15 @@
                              <input  type="text" class="name form-control" >
                            </div>
                        </td>
+                       <td >
+                         <div style="margin-left:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                         <label for="file-upload" class="custom-file-upload">
+                               <i class="glyphicon glyphicon-upload"></i>
+                           </label>
+                           <input id="file-upload" type="file"/>
+                         </div>
+                       </td>
+
                      </tr>
                    <tfoot>
                      <td width="5%"></td>
@@ -420,9 +450,10 @@
 
   <script>
      $('#addRow').click(function(){
-       var newRow = '<tr>';
-       var td1 = '<td style="margin-right:5px"></td>';
-       var td2 = '<td <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"> <select id="accountSubCSelect" class="form-control" style="width: 180px;"></div>';
+       var newRow = '<tr>';      
+       var td1 = '<td><div style="margin-top: 6px !important; margin-bottom: 6px !important;">';
+       var  rowCount = $('#journal-entry-table tr').length -1;
+       var td2 = '</div></td><td <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"> <select id="accountSubCSelect" class="form-control" style="width: 180px;"></div>';
        var option = '<option></option> <option>Cash</option> <option>Accounts Receivable</option><option>Equipment</option><option>Accounts Payable</option><option>Notes Payable</option>';
        var endt2 ='</select></td>';
        var td3 = '<td> <div class="form-group input-group"style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"> <span class="input-group-addon">$</span><input  type="text" class="form-control debits" style="text-align:right">';
@@ -432,9 +463,12 @@
        var td5 = '<td><div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><input  type="text" class="description form-control" size="60" >';
        var endtd5 = '</div> </td>';
        var td6 = '<td><div class="form-group input-group"style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><input  type="text" class="name form-control"></div> </td>';
+       var td7a = '<td><div style="margin-left: 6px !important; margin-top: 6px !important; margin-bottom: 6px !important;">';
+       var td7b='<label for="file-upload" class="custom-file-upload"> <i class="glyphicon glyphicon-upload"></i></label>';
+       var td7c = ' <input id="file-upload" type="file"/></div></td>';
        var endRow = '</tr>';
 
-       var markup =  newRow+ td1 + td2 + option + endt2 + td3 + endtd3 + td4 + endtd4 + td5 + endtd5+ td6 + endRow;
+       var markup =  newRow  + td1 + rowCount + td2 + option + endt2 + td3 + endtd3 + td4 + endtd4 + td5 + endtd5+ td6 + td7a + td7b + td7c +  endRow;
 
       jQuery('#journal-entry-table').append(markup);
 
@@ -447,7 +481,11 @@
     $('body').on('keyup', '.debits', function () {
     var sum = 0;
     $('.debits').each(function() {
-        sum += Number($(this).val());
+      var num = Number($(this).val());
+      if(isNaN(num)){
+        num = 0;
+      }
+        sum += num;
     });
 
         $('.total_debits').html(sum);
@@ -460,7 +498,11 @@
   $('body').on('keyup', '.credits', function () {
     var sum = 0;
     $('.credits').each(function() {
-        sum += Number($(this).val());
+        var num = Number($(this).val());
+        if(isNaN(num)){
+          num = 0;
+        }
+        sum += num;
     });
 
         $('.total_credits').html(sum);
