@@ -42,7 +42,8 @@ include "Configuration.php";
                         //echo userID
                 
                       if ($row['role'] == 'manager') 
-                        header("Location: ../pages/managerDashboard.html");
+                         header("Location: chartOfAccounts.php");
+                        // header("Location: ../pages/managerDashboard.html");
                         //echo $userID;
                   
                       if ($row['role'] == 'ordinary') {
