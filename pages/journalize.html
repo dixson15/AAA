@@ -2,41 +2,61 @@
 <html lang="en">
 
 <head>
+  <!-- jQuery -->
+     <script src="../vendor/jquery/jquery.min.js"></script>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/journalize.js"></script>
+     <!-- Bootstrap Core JavaScript -->
+     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../vendor/bootstrap4/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../vendor/bootstrap-filestyle/src/bootstrap-filestyle.min.js"> </script>
+     <!-- Metis Menu Plugin JavaScript -->
+     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+     <!-- DataTables JavaScript -->
+     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+     <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+     <!-- Custom Theme JavaScript -->
+     <script src="../dist/js/sb-admin-2.js"></script>
+ <head>
+
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="">
+     <meta name="author" content="">
 
 
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap Core CSS -->
+     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- DataTables CSS -->
-    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
-    <!-- DataTables Responsive CSS -->
-    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+     <!-- MetisMenu CSS -->
+     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+     <!-- DataTables CSS -->
+     <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <!-- DataTables Responsive CSS -->
+     <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+     <!-- Custom CSS -->
+     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+     <!-- Custom Fonts -->
+     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+     <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+     <![endif]-->
+
 
 </head>
 
@@ -204,18 +224,21 @@
                     <!--                                                      Add your code here                                         -->
 
 
-
-
-
   <div class="panel panel-default">
-    <div class="col-lg-12">
+  <div class="panel-heading">
         <h1 class="page-header">Journal Entry</h1>
     </div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-          <div class="table-responsive">
+    <div class="panel-body">
+        <div class="table-responsive">
 
-               <table class="journalize-table table table-hover" width="100%" id="journal-entry-table">
+    <div class="alert alert-info"  style="width:200px; height:50px; float:right;">
+        Journal Entry #1.</div>
+
+
+
+      <button type="button" class="add-row-btn btn btn-outline btn-info" id="addRow" style"margin-right: 5530px;" >Add Row</button>
+
+               <table class="journalize-table display table-hover" width="100%" id="journal-entry-table">
                   <thead>
                       <tr>
                           <th>#</th>
@@ -224,105 +247,163 @@
                           <th>Credits</th>
                           <th>Description</th>
                           <th>Name</th>
+                          <th>Attach</th>
                       </tr>
 
+                      <tr>
+                         <td>
+                          <div style="margin-top: 6px !important; margin-bottom: 6px !important;">1</div>
+                         </td>
+                           <td>
+                             <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                            <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
+                               <option></option>
+                                <option>Cash</option>
+                                <option>Accounts Receivable</option>
+                                <option>Equipment</option>
+                                <option>Accounts Payable</option>
+                                <option>Notes Payable</option>
+                           </select>
+                         </div>
+                       </td>
+                        <td>
+                            <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                                <span class="input-group-addon">$</span><input  type="text" class="form-control debits" style="text-align:right">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><span class="input-group-addon">$</span>
+                                <input  type="text" class="form-control credits" style="text-align:right">
+                            </div>
+                        </td>
+                            <td >
+                              <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                                <input  type="text" class="description form-control" size="60" >
+                              </div>
+                        </td>
+                        <td>
+                            <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                              <input  type="text" class="name form-control" >
+                            </div>
+                        </td>
+                        <td >
+                          <div style="margin-left:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                          <label for="file-upload" class="custom-file-upload">
+                                <i class="glyphicon glyphicon-upload"></i>
+                            </label>
+                            <input id="file-upload" type="file"/>
+                          </div>
+                        </td>
                      <!--                        row                     -->
-                     <tr>
-                       <td width="5%">1</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text"  style="text-align:right" class="debits"  style="background: transparent" size="20"/>  </td>
-                       <td width="15%"><input type="text"   style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">2</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text"  style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">3</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">4</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">5</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">6</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">7</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
-                     <tr>
-                       <td width="5%">8</td>
-                       <td width="10%">  <select size="1">
-                           <option selected=""></option><option>Cash</option><option>  Notes Payable </option></select></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="debits"  style="background: transparent" size="20"/></td>
-                       <td width="15%"><input type="text" style="text-align:right" class="credits" style="background: transparent" size="20"/></td>
-                       <td width="40%"><input type="text" class="description" style="background: transparent" size="55"/> </td>
-                       <td width="15%"><input type="text" class="name" style="background: transparent" size="15"/></td>
-                     </tr>
-                     <!--                        row                     -->
+                       <tr>
+                         <td>
+                           <div style="margin-top: 6px !important; margin-bottom: 6px !important;">2 </div>
+                         </td><td>
+                            <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                           <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
+                              <option></option>
+                               <option>Cash</option>
+                               <option>Accounts Receivable</option>
+                               <option>Equipment</option>
+                               <option>Accounts Payable</option>
+                               <option>Notes Payable</option>
+                          </select>
+                        </div>
+                      </td>
+                       <td>
+                           <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                               <span class="input-group-addon">$</span><input  type="text" class="form-control debits" style="text-align:right">
+                           </div>
+                       </td>
+                       <td>
+                           <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><span class="input-group-addon">$</span>
+                               <input  type="text" class="form-control credits" style="text-align:right">
+                           </div>
+                       </td>
+                           <td >
+                             <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                               <input  type="text" class="description form-control" size="60" >
+                             </div>
+                       </td>
+                       <td>
+                           <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                             <input  type="text" class="name form-control" >
+                           </div>
+                       </td>
+                       <td >
+                         <div style="margin-left:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                         <label for="file-upload" class="custom-file-upload">
+                               <i class="glyphicon glyphicon-upload"></i>
+                           </label>
+                           <input id="file-upload" type="file"/>
+                         </div>
+                       </td>
+     <!--                        row                     -->
+                  <tr>
 
+                       <td>
+                         <div style="margin-top: 6px !important; margin-bottom: 6px !important;"> 3</div>
+                        </td>
 
+                        <td>
+                          <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                         <select class="form-control" id="accountSubCSelect"   style="width: 180px;">
+                            <option></option>
+                             <option>Cash</option>
+                             <option>Accounts Receivable</option>
+                             <option>Equipment</option>
+                             <option>Accounts Payable</option>
+                             <option>Notes Payable</option>
+                        </select>
+                      </div>
+                    </td>
+                       <td>
+                           <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                               <span class="input-group-addon">$</span><input  type="text" class="form-control debits" style="text-align:right">
+                           </div>
+                       </td>
+                       <td>
+                           <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><span class="input-group-addon">$</span>
+                               <input  type="text" class="form-control credits" style="text-align:right">
+                           </div>
+                       </td>
+                           <td >
+                             <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                               <input  type="text" class="description form-control" size="60" >
+                             </div>
+                       </td>
+                       <td>
+                           <div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                             <input  type="text" class="name form-control" >
+                           </div>
+                       </td>
+                       <td >
+                         <div style="margin-left:5px; margin-top: 6px !important; margin-bottom: 6px !important;">
+                         <label for="file-upload" class="custom-file-upload">
+                               <i class="glyphicon glyphicon-upload"></i>
+                           </label>
+                           <input id="file-upload" type="file"/>
+                         </div>
+                       </td>
 
+                     </tr>
                    <tfoot>
-
                      <td width="5%"></td>
                      <td width="10%"></td>
-                     <td width="15%"><span class="total" style="float:right">0</span></td>
-                     <td width="15%"><span class="total2" id="total2" style="float:right">0</span></td>
+                     <td width="15%"><span class="total_debits" style="float:right" >0</span></td>
+                     <td width="15%"><span class="total_credits" style="float:right">0</span></td>
                      <td width="40%"></td>
                      <td width="15%"></td>
-
-
                    </tfoot>
 
               </table>
+              <div class="modal-footer">
+
+                <button type="button" class="btn btn-outline btn-danger" id= "cancel-journal-entry-buttn" onclick="cancelDialog()">Cancel</button>
+                <button type="button" class="btn btn-outline btn-info" id="add-journal-entry-buttn">Submit Journal Entry</button>
+                <script type="text/javascript" src="../js/journalize.js"></script>
+
+              </div>
 
           </div><!-- /.table-responsive -->
       </div><!-- /.panel-body -->
@@ -342,6 +423,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
+
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
@@ -352,50 +434,84 @@
 
 
 
+
+
+
+
+
+
+
+</head>
+
+
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+
+
+  <script>
+     $('#addRow').click(function(){
+       var newRow = '<tr>';      
+       var td1 = '<td><div style="margin-top: 6px !important; margin-bottom: 6px !important;">';
+       var  rowCount = $('#journal-entry-table tr').length -1;
+       var td2 = '</div></td><td <div style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"> <select id="accountSubCSelect" class="form-control" style="width: 180px;"></div>';
+       var option = '<option></option> <option>Cash</option> <option>Accounts Receivable</option><option>Equipment</option><option>Accounts Payable</option><option>Notes Payable</option>';
+       var endt2 ='</select></td>';
+       var td3 = '<td> <div class="form-group input-group"style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"> <span class="input-group-addon">$</span><input  type="text" class="form-control debits" style="text-align:right">';
+       var endtd3= '</div> </td>';
+       var td4 =  '<td ><div class="form-group input-group"style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><span class="input-group-addon">$</span><input  type="text" class="form-control credits" style="text-align:right">';
+       var endtd4 = '</div> </td>';
+       var td5 = '<td><div class="form-group input-group" style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><input  type="text" class="description form-control" size="60" >';
+       var endtd5 = '</div> </td>';
+       var td6 = '<td><div class="form-group input-group"style="margin-right:5px; margin-top: 6px !important; margin-bottom: 6px !important;"><input  type="text" class="name form-control"></div> </td>';
+       var td7a = '<td><div style="margin-left: 6px !important; margin-top: 6px !important; margin-bottom: 6px !important;">';
+       var td7b='<label for="file-upload" class="custom-file-upload"> <i class="glyphicon glyphicon-upload"></i></label>';
+       var td7c = ' <input id="file-upload" type="file"/></div></td>';
+       var endRow = '</tr>';
+
+       var markup =  newRow  + td1 + rowCount + td2 + option + endt2 + td3 + endtd3 + td4 + endtd4 + td5 + endtd5+ td6 + td7a + td7b + td7c +  endRow;
+
+      jQuery('#journal-entry-table').append(markup);
+
+
+  });
+  </script>
+
+
     <script>
-    $("input.debits")
-      .keyup(function() {
-        total = 0;
-        $(this)
-          .parents("table")
-          .find("input.debits")
-            .each(function() {
-                value = parseFloat($(this).val());
-                if(isNaN(value)){
-                value = 0;
-                }
-                total += value;
-            })
-          .end()
-          .find("span.total")
-          .html(total);
-      });
+    $('body').on('keyup', '.debits', function () {
+    var sum = 0;
+    $('.debits').each(function() {
+      var num = Number($(this).val());
+      if(isNaN(num)){
+        num = 0;
+      }
+        sum += num;
+    });
+
+        $('.total_debits').html(sum);
+    });
 
 
   </script>
 
-<script>
+  <script>
+  $('body').on('keyup', '.credits', function () {
+    var sum = 0;
+    $('.credits').each(function() {
+        var num = Number($(this).val());
+        if(isNaN(num)){
+          num = 0;
+        }
+        sum += num;
+    });
 
-$("input.credits")
-  .keyup(function() {
-    total = 0;
-    $(this)
-      .parents("table")
-      .find("input.credits")
-        .each(function() {
-            value = parseFloat($(this).val());
-            if(isNaN(value)){
-            value = 0;
-            }
-            total += value;
-        })
-      .end()
-      .find("span.total2")
-      .html(total);
-  });
+        $('.total_credits').html(sum);
+    });
 
-</script>
+  </script>
+
+
+
 </body>
 
 </html>

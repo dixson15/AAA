@@ -23,8 +23,19 @@ body {
   }
 }
 
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 
+.add-row-btn{
 
+}
 
 
 .navbar-top-links {
@@ -229,6 +240,12 @@ table.dataTable thead .sorting:after {
   float: right;
   font-family: fontawesome;
   color: rgba(50, 50, 50, 0.5);
+}
+.journal-entry-table{
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
+	max-width: none !important;
+  border-collapse: separate !important;
 }
 
 .btn-circle {
